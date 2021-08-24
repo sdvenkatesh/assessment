@@ -1,0 +1,42 @@
+<html>
+	<head>Assessment</head>
+	<body>
+	
+		<script type="text/javascript">
+			console.log(deepClone({ name: "Hitachi MGRM NET", address: { city: "Gurgaon", country: "India" } }));
+			console.log(areAnagrams('fried', 'fired'));
+			
+			function deepClone(obj) {
+				var tgtObj = (obj instanceof Array) ? [] : {};
+				
+				for(var key in obj) {
+					var val = obj[key];
+					
+					if(typeof(val) == 'object') {
+						deepClone(val);
+					}
+					
+					tgtObj[key] = val;
+				}
+				
+				return tgtObj;
+			}
+			
+			function areAnagrams(val1, val2) {
+				var valArr1 = Array.from(val1);
+				var valArr2 = Array.from(val2);
+				var areAnagrams = true;
+				
+				for(i=0;i<valArr1.length; i++) {
+					var idx = valArr2.indexOf(valArr1[i]);
+					
+					if(idx == -1) {
+						areAnagrams = false;
+					}
+				}
+				console.log(areAnagrams);
+			}
+		
+		</script>
+	</body>
+</html>
